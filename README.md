@@ -1,0 +1,2 @@
+# NodeBaseCoin
+Home of NodeBase
