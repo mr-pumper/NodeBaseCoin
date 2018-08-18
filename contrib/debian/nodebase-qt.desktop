@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nodebase
+Comment=Nodebase P2P Cryptocurrency
+Comment[fr]=Nodebase, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Nodebase, eşten eşe kriptografik sanal para birimi
+Exec=nodebase-qt %u
+Terminal=false
+Type=Application
+Icon=nodebase128
+MimeType=x-scheme-handler/nodebase;
+Categories=Office;Finance;

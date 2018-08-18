@@ -1,0 +1,29 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/nodebase_bg.qm</file>
+        <file alias="ca">locale/nodebase_ca.qm</file>
+        <file alias="cs">locale/nodebase_cs.qm</file>
+        <file alias="da">locale/nodebase_da.qm</file>
+        <file alias="de">locale/nodebase_de.qm</file>
+        <file alias="en">locale/nodebase_en.qm</file>
+        <file alias="en_US">locale/nodebase_en_US.qm</file>
+        <file alias="es">locale/nodebase_es.qm</file>
+        <file alias="fi">locale/nodebase_fi.qm</file>
+        <file alias="fr_FR">locale/nodebase_fr_FR.qm</file>
+        <file alias="it">locale/nodebase_it.qm</file>
+        <file alias="ja">locale/nodebase_ja.qm</file>
+        <file alias="ko_KR">locale/nodebase_ko_KR.qm</file>
+        <file alias="nl">locale/nodebase_nl.qm</file>
+        <file alias="pl">locale/nodebase_pl.qm</file>
+        <file alias="pt">locale/nodebase_pt.qm</file>
+        <file alias="pt_BR">locale/nodebase_pt_BR.qm</file>
+        <file alias="ro_RO">locale/nodebase_ro_RO.qm</file>
+        <file alias="ru">locale/nodebase_ru.qm</file>
+        <file alias="sk">locale/nodebase_sk.qm</file>
+        <file alias="sv">locale/nodebase_sv.qm</file>
+        <file alias="tr">locale/nodebase_tr.qm</file>
+        <file alias="uk">locale/nodebase_uk.qm</file>
+        <file alias="zh_CN">locale/nodebase_zh_CN.qm</file>
+        <file alias="zh_TW">locale/nodebase_zh_TW.qm</file>
+    </qresource>
+</RCC>
