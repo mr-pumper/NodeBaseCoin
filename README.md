@@ -52,4 +52,4 @@ button tap.
 <tr><td>...until block 1 390 756 where rewards are locked at 2 NDB</td></tr>
 </tbody></table>
 
-<a href="https://nodebasechain.co" title="Nodebase Website" target="_blank">View our website for more details</a>
+<a href="https://nodebase.org" title="Nodebase Website" target="_blank">View our website for more details</a>
