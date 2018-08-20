@@ -223,7 +223,7 @@ color: #000;
 
 QPushButton { /* Global Button Style */
 background-color: #f28c20; 
-border-width: 1px;
+border-width: 0px;
 border-style: outset;
 border-color: #f28c20;
 border-radius: 100%;
@@ -710,7 +710,7 @@ QDialog#SignVerifyMessageDialog #addressBookButton_VM,
 QDialog#SignVerifyMessageDialog #addressBookButton_SM,
 QDialog#SignVerifyMessageDialog #pasteButton_SM,    
 QDialog#SignVerifyMessageDialog #copySignatureButton_SM {
-    background: #2f2f2f;
+    background: #1c66a3;
     border: 4px solid #2f2f2f;
 }
     
