@@ -223,6 +223,10 @@ color: #000;
 
 QPushButton { /* Global Button Style */
 background-color: #f28c20; 
+border-width: 1px;
+border-style: outset;
+border-color: #f28c20;
+border-radius: 100%;
 color:#ffffff;
 font-size:12px;
 font-weight:bold;
