@@ -1126,7 +1126,9 @@ font-weight:bold;
 QWidget .QFrame#frame_Balances .QLabel#labelTotal { /* Total Balance */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-weight:bold;
-color:#662D91;
+color:#fff;
+background:#f28c20;
+    border-radius: 30px;
 margin-left:0px;
 }
 
