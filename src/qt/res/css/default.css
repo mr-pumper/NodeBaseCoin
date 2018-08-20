@@ -1669,7 +1669,7 @@ font-size:14px;
 /**************************** RECEIVE COINS DIALOG **************************************/
 
 QDialog#ReceiveRequestDialog QTextEdit { /* Contents of Receive Coin Dialog */
-border:1px solid #2f2f2f;
+border:0px solid #2f2f2f;
 }
 
 /**************************** TRANSACTIONS PAGE *****************************************/
@@ -1687,12 +1687,12 @@ margin-right:1px;
 }
 
 QLabel#transactionSumLabel { /* Example of setObjectName for widgets without name */
-color:#662D91;
+color:#fff;
 font-weight:bold;
 }
  
 QLabel#transactionSum { /* Example of setObjectName for widgets without name */
-color:#662D91;
+color:#f28c20;
 }
 
 /**************************** TRANSACTION DETAILS DIALOG ********************************/
@@ -1700,7 +1700,7 @@ color:#662D91;
 QDialog#TransactionDescDialog QTextEdit { /* Contents of Receive Coin Dialog */
 border:0px solid #2f2f2f;
 padding: 10px;
-background: #2f2f2f
+background: #278aba
 }
 
 /**************************** PRIVACY PAGE *****************************************/
