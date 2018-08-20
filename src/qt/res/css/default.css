@@ -1433,17 +1433,17 @@ QDialog#SendCoinsDialog QLabel#label {
 }
 
 QDialog#SendCoinsDialog QLabel#labelBalance {
-color:#662D91;
+color:#f28c20;
 /* font-size: 16px; */
 }
 
 /**************************** SEND COINS ENTRY ******************************************/
 QStackedWidget#SendCoinsEntry {
     border: 0px solid #0e0e0e;
-    border-bottom: 1px dotted #331648;
+    border-bottom: 0px dotted #331648;
     padding-right: 20px;
     margin: 0;
-    background: rgba(128,128,128,0.1);
+    
 }
 QStackedWidget#SendCoinsEntry .QFrame#SendCoins > .QLabel { /* Send Coin Entry Labels */
 min-width:10px;
