@@ -973,7 +973,7 @@ padding-left: 15px;
 
 QLabel#labelOverviewHeaderRight {
 qproperty-alignment: 'AlignVCenter | AlignRight';
-background-image: url(':/images/blocknode_logo_horizontal');
+background-image: url(':/images/blocknode_logo_horizontal.png');
 background-repeat: no-repeat;
 /* background-color:#0e0e0e; */
 background-position: right center;
@@ -988,7 +988,7 @@ background-color:transparent;
 
 QWidget .QFrame#frame_BG { /* Background */
 min-width:400px;
-background-color:rgba(14,14,14,.5);
+
 }
 
 /**************************** OVERVIEW SCREEN *******************************************/
