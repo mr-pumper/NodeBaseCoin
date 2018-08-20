@@ -670,7 +670,7 @@ font-weight:bold;
 
 QDialog#OpenURIDialog QPushButton#selectFileButton { /* ... Button */
 /* background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #f6f6f6, stop: .1 rgba(250, 250, 250, 128), stop: .95 rgba(250, 250, 250, 255), stop: 1 #ebebeb); */
-background-color: #0e0e0e;
+background-color: #f28c20;
 border:0px solid #d2d2d2;
 color:#616161;
 padding-left:15px;
@@ -679,19 +679,19 @@ padding-right:15px;
 
 QDialog#OpenURIDialog QPushButton#selectFileButton:hover {
 /* background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: .01 #f6f6f6, stop: .1 rgba(240, 240, 240, 255), stop: .95 rgba(240, 240, 240, 255), stop: 1 #ebebeb); */
-background-color: #0e0e0e;
+background-color: #c37019;
 color:#662D91;
 }
 
 QDialog#OpenURIDialog QPushButton#selectFileButton:pressed {
-border:0px solid #9e9e9e;
+border:0px solid #c37019;
 background-color: #1f1f1f;
 }
 
 /**************************** SIGN/ VERIFY MESSAGE DIALOG *******************************/
 
 QDialog#SignVerifyMessageDialog {
-    background-color: #1f1f1f;
+    background-color: #1c66a3;
 }
 /* QDialog#SignVerifyMessageDialog QPushButton#addressBookButton_SM { /* Address Book Button */
 /* QDialog#SignVerifyMessageDialog QPlainTextEdit { /* Message Signing Text */
