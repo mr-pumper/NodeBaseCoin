@@ -85,7 +85,7 @@ background-color: #c37019;
 
 /* QToolBar > QToolButton:hover:!selected { */
 QToolBar > QToolButton:hover {
-    background: #f28c20;
+    background: linear-gradient(90deg, rgba(255,238,0,1) 0%, rgba(255,69,0,1) 100%);
     color:#fff;
 }
 QToolBar > QToolButton:hover:!selected {
