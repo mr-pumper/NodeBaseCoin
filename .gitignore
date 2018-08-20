@@ -13,7 +13,6 @@
 
 # Compiled Dynamic libraries
 *.so
-*.dylib
 *.dll
 
 # Fortran module files
@@ -35,3 +34,9 @@
 .idea/*
 
 .DS_Store
+
+src/qt/nodebase.config
+src/qt/nodebase.creator
+src/qt/nodebase.files
+src/qt/nodebase.includes
+src/qt/nodebase.creator.user

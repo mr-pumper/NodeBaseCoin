@@ -57,7 +57,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
                 (0, uint256("0x"));
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
-        1534568932, // * UNIX timestamp of last checkpoint block
+        1534792829, // * UNIX timestamp of last checkpoint block
         0,    // * total number of transactions between genesis and last checkpoint
         //   (the tx=... number in the SetBestChain debug.log lines)
         2000        // * estimated number of transactions per day after checkpoint
@@ -68,7 +68,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
                 (0, uint256("0x"));
 static const Checkpoints::CCheckpointData dataTestnet = {
         &mapCheckpointsTestnet,
-        1534568932,
+        1534792829,
         0,
         250};
 
@@ -78,7 +78,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
 //    (0, uint256("0x000001733877023e9a2751258b8119e420e153377ffd21c996af58c8cdceede5")); // quark
 static const Checkpoints::CCheckpointData dataRegtest = {
         &mapCheckpointsRegtest,
-        1534568932,
+        1534792829,
         0,
         100};
 
@@ -133,7 +133,7 @@ public:
         nBlockLastGoodCheckpoint = 0; //Last valid accumulator checkpoint
         nBlockEnforceInvalidUTXO = 1; //Start enforcing the invalid UTXO's
 
-        const char *pszTimestamp = "NodeBAse chain made with love in Europe,America,Asia Aug 18 2018";
+        const char *pszTimestamp = "NodeBAse chain made with love in Europe,America,Asia Aug 20 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -149,13 +149,14 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1534568932;
+        genesis.nTime = 1534792829;
+
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 516507;
+        genesis.nNonce = 1250780;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(genesis.hashMerkleRoot == uint256("0xcc7aa7b5b7b1871b3778c88425b6c1c13cf3a97ee3c96e5a209d77114d25129e"));
-        assert(hashGenesisBlock == uint256("0x00000e3674251ab9d35b59d133230dada48461209cae859f2e26ebfa2fd890ad"));
+        assert(genesis.hashMerkleRoot == uint256("0xb2c056261007b6dcd5ecae1b950f5c01a9ed876372f1f73a4c39d143b91542bd"));
+        assert(hashGenesisBlock == uint256("0x000007e95600dfaabb7defd2b97ca02f0cb927e41e39f1a239a96f2671895d4c"));
 
         // Zerocoin, activated never
         nZerocoinStartHeight = INT_MAX;
