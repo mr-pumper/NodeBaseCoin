@@ -1327,13 +1327,13 @@ padding-right:5px;
 QWidget .QFrame#frame_RecentTransactions .QLabel#labelTransactionsStatus { /* Recent Transactions Sync Status */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 margin-left:3px;
-color: #662d91;
+color: #f28c20;
 }
 
 QWidget .QFrame#frame_RecentTransactions QListView { /* Transaction List */
 font-weight:normal;
 color: #fff;
-background: #1c66a3;
+background-color: #1c66a3;
 font-size:12px;
 margin-top:12px;
 margin-left:0px;
@@ -1346,11 +1346,11 @@ QDialog#SendCoinsDialog {
 }
 
 QDialog#SendCoinsDialog .QFrame#frameCoinControl { /* Coin Control Section */
-    background-color:rgba(30,30,30,0.75);
+    ;
 }
 
 QDialog#SendCoinsDialog .QFrame#frameFee { /* Coin Control Section */
-    background-color:rgba(30,30,30,0.75);
+    ;
     padding: 20px;
 }
 
@@ -1373,7 +1373,7 @@ QDialog#SendCoinsDialog .QFrame#frameCoinControl .QLabel#labelCoinControlFeature
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 min-width:160px;
 background-color:transparent;
-color:#662D91;
+color:#fff;
 font-weight:bold;
 font-size:14px;
 margin-right:5px;
