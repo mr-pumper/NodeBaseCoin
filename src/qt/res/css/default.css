@@ -606,7 +606,7 @@ border-radius: 8px;
 /**************************** DIALOG BOXES **********************************************/
 
 QDialog {
-background-color: #278aba;
+background-color: #1c66a3;
 }
 AskPassphraseDialog {
 background-color: #1c66a3;
@@ -771,7 +771,7 @@ QDialog#MultisigDialog QFrame#addressFrame {
     background: #1c66a3;
 }
 QDialog#MultisigDialog #message {
-    border: #2f2f2f solid 1px
+    border: #2f2f2f solid 0px
 }
 
 /**************************** Privacy Dialog ********************************************/
