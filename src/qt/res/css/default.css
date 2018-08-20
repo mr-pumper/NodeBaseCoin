@@ -1127,8 +1127,6 @@ QWidget .QFrame#frame_Balances .QLabel#labelTotal { /* Total Balance */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-weight:bold;
 color:#fff;
-background:#f28c20;
-border-radius: 30px;
 margin-left:0px;
 }
 
@@ -1140,7 +1138,7 @@ margin-left:16px;
 QWidget .QFrame#frame_Balances .QLabel#labelLockedBalanceText { /* Available zPIV Label */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 min-width:160px;
-color:#662D91;
+color:#f28c20;
 margin-right:5px;
 padding-right:5px;
 font-weight:bold;
@@ -1149,7 +1147,7 @@ font-weight:bold;
 QWidget .QFrame#frame_Balances .QLabel#labelLockedBalance { /* Available zPIV Balance */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-weight:bold;
-color:#662D91;
+color:#f28c20;
 margin-left:0px;
 }
 
@@ -1164,7 +1162,7 @@ QWidget .QFrame#frame_ZerocoinBalances .QLabel#label_5z_3 { /* Zerocoin Balance 
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 min-width:160px;
 background-color:transparent;
-color:#662D91;
+color:#f28c20;
 font-weight:bold;
 font-size:14px;
 margin-right:5px;
@@ -1247,7 +1245,7 @@ QWidget .QFrame#frame_CombinedBalances .QLabel#label_5z { /* Combined Balance La
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 min-width:160px;
 background-color:transparent;
-color: #662D91;
+color: #f28c20;
 font-weight:bold;
 font-size:14px;
 margin-right:5px;
@@ -1285,7 +1283,7 @@ QWidget .QFrame#frame_CombinedBalances .QLabel#labelzBalancez { /* Available zPI
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-size:12px;
 font-weight:bold;
-color:#662D91;
+color:#f28c20;
 margin-left:0px;
 }
 
