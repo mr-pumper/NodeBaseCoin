@@ -886,15 +886,15 @@ min-width:180px;
 }
 
 QDialog#RPCConsole QWidget#tab_peers QLabel#peerHeading { /* Peers Info Header */
-color:#662D91;
+color:#fff;
 }
 
 QDialog#RPCConsole QTableView#peerWidget::item { /* Peers Table Items */
-color:#888;
+color:#fff;
 }
 
 QDialog#RPCConsole QTableView#peerWidget::item:selected { /* Table Item Selected */
-background-color: #515151;
+background-color: #278aba;
 color:#fff;
 }
 
@@ -913,16 +913,16 @@ margin-right:5px;
 }
 
 QDialog#RPCConsole QPushButton#clearButton { /* Console Clear Button */
-background: #2f2f2f;
-border: 4px solid #2f2f2f;
+background: #1c66a3;
+border: 0px solid #2f2f2f;
 }
 
 QDialog#RPCConsole .QGroupBox #line { /* Network In Line */
-background-color:#662D91;
+background-color:#fff;
 }
 
 QDialog#RPCConsole .QGroupBox #line_2 { /* Network Out Line */
-background:#662d91;
+background:#fff;
 }
 
 /**************************** HELP MENU *************************************************/
