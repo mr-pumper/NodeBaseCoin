@@ -1117,7 +1117,7 @@ margin-left:16px;
 QWidget .QFrame#frame_Balances .QLabel#labelTotalText { /* Total Balance Label */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 min-width:160px;
-color:#662D91;
+color:#f28c20;
 margin-right:5px;
 padding-right:5px;
 font-weight:bold;
@@ -1128,7 +1128,7 @@ qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-weight:bold;
 color:#fff;
 background:#f28c20;
-    border-radius: 30px;
+border-radius: 30px;
 margin-left:0px;
 }
 
@@ -1335,6 +1335,7 @@ color: #662d91;
 QWidget .QFrame#frame_RecentTransactions QListView { /* Transaction List */
 font-weight:normal;
 color: #fff;
+background: #1c66a3;
 font-size:12px;
 margin-top:12px;
 margin-left:0px;
