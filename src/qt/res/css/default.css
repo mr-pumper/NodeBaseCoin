@@ -975,7 +975,7 @@ QLabel#labelOverviewHeaderRight {
 qproperty-alignment: 'AlignVCenter | AlignRight';
 background-image: url(':/images/blocknode_logo_horizontal.png');
 background-repeat: no-repeat;
-/* background-color:#0e0e0e; */
+ background-color:#0e0e0e; 
 background-position: right center;
 width: 100%;
 
