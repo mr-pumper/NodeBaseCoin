@@ -274,7 +274,7 @@ background-color: #278aba ;
 }
 
 QComboBox { /* Dropdown Menus */
-border:0px solid #662d91;
+border:0px solid #278aba;
 padding: 3px 5px 3px 5px;
 background:#fff;
 min-height:25px;
@@ -504,18 +504,18 @@ min-width:10px;
 }
 
 QScrollBar::add-page, QScrollBar::sub-page { /* Scroll Bar Background */
-background:#1f1f1f;
+background:#1c66a3;
 }
 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical, QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { /* Define Arrow Button Dimensions */
-background-color:#1f1f1f;
+background-color:#1c66a3;
 border: 1px solid #2f2f2f;
 width:16px;
 height:16px;
 }
 
 QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed, QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed {
-background-color:#2f2f2f;
+background-color:#1c66a3;
 }
 
 QScrollBar::sub-line:vertical { /* Vertical - top button position */
