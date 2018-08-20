@@ -80,12 +80,12 @@ height: 60px;
 
 QToolBar > QToolButton:checked {
 color:#ffffff;
-background-color: #c37019;
+background: linear-gradient(90deg, rgba(255,238,0,1) 0%, rgba(255,69,0,1) 100%);
 }
 
 /* QToolBar > QToolButton:hover:!selected { */
 QToolBar > QToolButton:hover {
-    background: linear-gradient(90deg, rgba(255,238,0,1) 0%, rgba(255,69,0,1) 100%);
+    background: #f28c20;
     color:#fff;
 }
 QToolBar > QToolButton:hover:!selected {
