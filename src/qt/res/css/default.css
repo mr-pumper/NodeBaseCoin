@@ -211,7 +211,7 @@ background-color:#fff;
 
 .QValidatedLineEdit:disabled, .QLineEdit:disabled, .QTextEdit:disabled {
 color: #666;
-background-color:#199332;
+background-color:#fff;
 }
 
 .QPlainTextEdit {
