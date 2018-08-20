@@ -956,7 +956,7 @@ padding-right:5px;
 /* Header design for ALL tabs/pages *****************************************************/
 /* Horizontal lines */
 QFrame[frameShape="4"] { /* QFrame::HLine == 0x0004 */
-border:1px dashed #f28c20;
+border:4px solid #fff;
 }
 
 /* Headers */
