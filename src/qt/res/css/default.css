@@ -603,10 +603,10 @@ border-radius: 8px;
 /**************************** DIALOG BOXES **********************************************/
 
 QDialog {
-background-color: #1f1f1f;
+background-color: #278aba;
 }
 AskPassphraseDialog {
-background-color: #1f1f1f;
+background-color: #1c66a3;
 }
 
 
