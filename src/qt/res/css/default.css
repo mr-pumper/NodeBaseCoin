@@ -428,7 +428,7 @@ border-right:0;
 }
 
 QScrollArea {
-    
+    background:rgba(39,138,186,0);
     border:0px solid #2f2f2f;
 }
 
