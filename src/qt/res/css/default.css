@@ -611,15 +611,15 @@ background-color: #1c66a3;
 
 
 QDialog .QTabWidget {
-border-bottom:1px solid #2f2f2f;
+border-bottom:0px solid #2f2f2f;
 }
 
 QDialog .QTabWidget::pane {
-border: 1px solid #2f2f2f;
+border: 0px solid #2f2f2f;
 }
 
 QDialog .QTabWidget QTabBar::tab {
-background-color:#278aba;
+background-color:#1c66a3;
 color:#fff;
 padding-left:10px;
 padding-right:10px;
