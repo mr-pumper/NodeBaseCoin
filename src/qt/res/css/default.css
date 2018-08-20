@@ -1456,7 +1456,7 @@ padding-right:5px;
 QStackedWidget#SendCoinsEntry .QToolButton#addressBookButton,
 QStackedWidget#SendCoinsEntry .QToolButton#pasteButton,
 QStackedWidget#SendCoinsEntry .QToolButton#deleteButton {
-    background: #0e0e0e;
+    
     border: 0px solid #662d91;
 }
 
