@@ -149,8 +149,8 @@ color: #662d91;
 }
 
 QWidget {
-selection-background-color:#662d91; /* Object highlight color */
-selection-color:#2f2f2f;
+selection-background-color:#f28c20; /* Object highlight color */
+selection-color:#fff;
 outline:0; /* Remove Annoying Focus Rectangle */
 }
 
