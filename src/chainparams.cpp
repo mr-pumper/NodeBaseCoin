@@ -273,10 +273,12 @@ public:
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1530742317;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 601665;
+        genesis.nNonce = 728215;
 
         hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0x000002244385b8f9a32b98ab6b9eb0c0e30acfce4f76fb63fbd5b6ba3d4936cf"));
+        assert(genesis.hashMerkleRoot == uint256("0xb2c056261007b6dcd5ecae1b950f5c01a9ed876372f1f73a4c39d143b91542bd"));
+
+        assert(hashGenesisBlock == uint256("0x00000e71f6a536e266df67f4a772f9d3ab85915f23b343e1f0bc1c14012f6835"));
 
         // Zerocoin, activated by default
         nZerocoinStartHeight = INT_MAX;
@@ -284,8 +286,8 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("nodebase.tech", "testnet-seeds.nodebase.tech"));             // Primary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("gig8.com", "testnet-seeds.nodebase.gig8.com"));      // Secondary DNS Seeder
+//        vSeeds.push_back(CDNSSeedData("nodebase.tech", "testnet-seeds.nodebase.tech"));             // Primary DNS Seeder
+//        vSeeds.push_back(CDNSSeedData("gig8.com", "testnet-seeds.nodebase.gig8.com"));      // Secondary DNS Seeder
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 88); // Testnet nodebase addresses start with 'b''
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,
@@ -312,7 +314,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "047ff78a093ca911fbe3c7cd9b8b81976696d92e6ad3d987b00a4cc4841fe9689ed6902be9c6942ef77492d0531bf68cf2e53dc0ac683359f938a7a52a988ced8c";
+        strSporkKey = "04f624e17101fc210e609e161e2ef58745af485e26cabd51681c2c25953958dae5b549d636a73ea94840bc7eb720c43f26f1624596e8f1920ee37732ad9d6001eb";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
         nStartMasternodePayments = genesis.nTime + 60 * 60; // 1 hr after genesis
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
