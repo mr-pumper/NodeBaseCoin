@@ -541,8 +541,7 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bantablemodel.cpp \
 	qt/res/icons/transaction_conflicted.png \
 	qt/res/icons/tx_inout.png qt/res/icons/tx_input.png \
 	qt/res/icons/tx_output.png qt/res/icons/tx_mined.png \
-	qt/res/icons/unit_nodebase.png \
-	qt/res/icons/unit_mnodebase.png \
+	qt/res/icons/unit_nodebase.png qt/res/icons/unit_mnodebase.png \
 	qt/res/icons/unit_unodebase.png \
 	qt/res/icons/unit_tnodebase.png \
 	qt/res/icons/unit_tmnodebase.png \
@@ -769,8 +768,7 @@ libbitcoinconsensus_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 @ENABLE_QT_TESTS_TRUE@am__EXEEXT_5 =  \
 @ENABLE_QT_TESTS_TRUE@	qt/test/test_nodebase-qt$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
-am__nodebase_cli_SOURCES_DIST = nodebase-cli.cpp \
-	nodebase-cli-res.rc
+am__nodebase_cli_SOURCES_DIST = nodebase-cli.cpp nodebase-cli-res.rc
 @TARGET_WINDOWS_TRUE@am__objects_11 = nodebase-cli-res.$(OBJEXT)
 am_nodebase_cli_OBJECTS = nodebase_cli-nodebase-cli.$(OBJEXT) \
 	$(am__objects_11)
@@ -781,10 +779,9 @@ nodebase_cli_DEPENDENCIES = $(LIBBITCOIN_CLI) $(am__DEPENDENCIES_2) \
 	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
-nodebase_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
-	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
-	$(nodebase_cli_CXXFLAGS) $(CXXFLAGS) $(nodebase_cli_LDFLAGS) \
-	$(LDFLAGS) -o $@
+nodebase_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(nodebase_cli_CXXFLAGS) \
+	$(CXXFLAGS) $(nodebase_cli_LDFLAGS) $(LDFLAGS) -o $@
 am__nodebase_tx_SOURCES_DIST = nodebase-tx.cpp nodebase-tx-res.rc
 @TARGET_WINDOWS_TRUE@am__objects_12 = nodebase-tx-res.$(OBJEXT)
 am_nodebase_tx_OBJECTS = nodebase_tx-nodebase-tx.$(OBJEXT) \
@@ -798,8 +795,7 @@ nodebase_tx_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(CXXFLAGS) $(nodebase_tx_LDFLAGS) $(LDFLAGS) -o $@
 am__nodebased_SOURCES_DIST = nodebased.cpp nodebased-res.rc
 @TARGET_WINDOWS_TRUE@am__objects_13 = nodebased-res.$(OBJEXT)
-am_nodebased_OBJECTS = nodebased-nodebased.$(OBJEXT) \
-	$(am__objects_13)
+am_nodebased_OBJECTS = nodebased-nodebased.$(OBJEXT) $(am__objects_13)
 nodebased_OBJECTS = $(am_nodebased_OBJECTS)
 am__DEPENDENCIES_3 = $(am__append_2)
 am__DEPENDENCIES_4 = $(am__append_3)
@@ -1077,8 +1073,7 @@ SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(nodist_qt_libbitcoinqt_a_SOURCES) \
 	$(libbitcoinconsensus_la_SOURCES) $(nodebase_cli_SOURCES) \
 	$(nodebase_tx_SOURCES) $(nodebased_SOURCES) \
-	$(qt_nodebase_qt_SOURCES) \
-	$(qt_test_test_nodebase_qt_SOURCES) \
+	$(qt_nodebase_qt_SOURCES) $(qt_test_test_nodebase_qt_SOURCES) \
 	$(nodist_qt_test_test_nodebase_qt_SOURCES) \
 	$(test_test_nodebase_SOURCES) \
 	$(nodist_test_test_nodebase_SOURCES)
@@ -1092,8 +1087,7 @@ DIST_SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(am__qt_libbitcoinqt_a_SOURCES_DIST) \
 	$(am__libbitcoinconsensus_la_SOURCES_DIST) \
 	$(am__nodebase_cli_SOURCES_DIST) \
-	$(am__nodebase_tx_SOURCES_DIST) \
-	$(am__nodebased_SOURCES_DIST) \
+	$(am__nodebase_tx_SOURCES_DIST) $(am__nodebased_SOURCES_DIST) \
 	$(am__qt_nodebase_qt_SOURCES_DIST) \
 	$(am__qt_test_test_nodebase_qt_SOURCES_DIST) \
 	$(am__test_test_nodebase_SOURCES_DIST)
@@ -2980,15 +2974,15 @@ clean-noinstPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-nodebase-cli$(EXEEXT): $(nodebase_cli_OBJECTS) $(nodebase_cli_DEPENDENCIES) $(EXTRA_nodebase_cli_DEPENDENCIES)
+nodebase-cli$(EXEEXT): $(nodebase_cli_OBJECTS) $(nodebase_cli_DEPENDENCIES) $(EXTRA_nodebase_cli_DEPENDENCIES) 
 	@rm -f nodebase-cli$(EXEEXT)
 	$(AM_V_CXXLD)$(nodebase_cli_LINK) $(nodebase_cli_OBJECTS) $(nodebase_cli_LDADD) $(LIBS)
 
-nodebase-tx$(EXEEXT): $(nodebase_tx_OBJECTS) $(nodebase_tx_DEPENDENCIES) $(EXTRA_nodebase_tx_DEPENDENCIES)
+nodebase-tx$(EXEEXT): $(nodebase_tx_OBJECTS) $(nodebase_tx_DEPENDENCIES) $(EXTRA_nodebase_tx_DEPENDENCIES) 
 	@rm -f nodebase-tx$(EXEEXT)
 	$(AM_V_CXXLD)$(nodebase_tx_LINK) $(nodebase_tx_OBJECTS) $(nodebase_tx_LDADD) $(LIBS)
 
-nodebased$(EXEEXT): $(nodebased_OBJECTS) $(nodebased_DEPENDENCIES) $(EXTRA_nodebased_DEPENDENCIES)
+nodebased$(EXEEXT): $(nodebased_OBJECTS) $(nodebased_DEPENDENCIES) $(EXTRA_nodebased_DEPENDENCIES) 
 	@rm -f nodebased$(EXEEXT)
 	$(AM_V_CXXLD)$(nodebased_LINK) $(nodebased_OBJECTS) $(nodebased_LDADD) $(LIBS)
 qt/qt_nodebase_qt-nodebase.$(OBJEXT): qt/$(am__dirstamp) \
@@ -3075,14 +3069,14 @@ test/test_test_nodebase-key_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-main_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_nodebase-mempool_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_nodebase-mempool_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-mruset_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-multisig_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_nodebase-netbase_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_nodebase-netbase_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-pmt_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-reverselock_tests.$(OBJEXT):  \
@@ -3101,22 +3095,22 @@ test/test_test_nodebase-scriptnum_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-serialize_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_nodebase-sighash_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_nodebase-sighash_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-sigopcount_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-skiplist_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_nodebase-test_nodebase.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_nodebase-test_nodebase.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-timedata_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-torcontrol_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-transaction_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_test_nodebase-uint256_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_test_nodebase-uint256_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-univalue_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_test_nodebase-util_tests.$(OBJEXT): test/$(am__dirstamp) \
@@ -3152,9 +3146,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodebase_cli-nodebase-cli.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodebase_tx-nodebase-tx.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodebased-nodebased.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_common_a-accumulatormap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_common_a-accumulators.Po@am__quote@
@@ -3246,6 +3237,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-pubkey.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-uint256.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-utilstrencodings.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodebase_cli-nodebase-cli.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodebase_tx-nodebase-tx.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nodebased-nodebased.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@compat/$(DEPDIR)/libbitcoin_util_a-glibc_compat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@compat/$(DEPDIR)/libbitcoin_util_a-glibc_sanity.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@compat/$(DEPDIR)/libbitcoin_util_a-glibcxx_sanity.Po@am__quote@
@@ -3289,9 +3283,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@primitives/$(DEPDIR)/libbitcoin_common_a-zerocoin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@primitives/$(DEPDIR)/libbitcoin_wallet_a-zerocoin.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@primitives/$(DEPDIR)/libbitcoinconsensus_la-transaction.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_nodebase_qt-nodebase.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_nodebase_qt-macdockiconhandler.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_nodebase_qt-macnotificationhandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-addressbookpage.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-addresstablemodel.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-askpassphrasedialog.Po@am__quote@
@@ -3403,6 +3394,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-walletview.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-winshutdownmonitor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libbitcoinqt_a-zndbcontroldialog.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_nodebase_qt-macdockiconhandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_nodebase_qt-macnotificationhandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_nodebase_qt-nodebase.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/test/$(DEPDIR)/qt_test_test_nodebase_qt-moc_paymentservertests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/test/$(DEPDIR)/qt_test_test_nodebase_qt-moc_uritests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/test/$(DEPDIR)/qt_test_test_nodebase_qt-paymentservertests.Po@am__quote@
