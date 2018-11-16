@@ -617,7 +617,7 @@ src/config/nodebase-config.h: src/config/stamp-h1
 src/config/stamp-h1: $(top_srcdir)/src/config/nodebase-config.h.in $(top_builddir)/config.status
 	@rm -f src/config/stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status src/config/nodebase-config.h
-$(top_srcdir)/src/config/nodebase-config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps) 
+$(top_srcdir)/src/config/nodebase-config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f src/config/stamp-h1
 	touch $@
@@ -1143,7 +1143,7 @@ osx_volname:
 	echo $(OSX_VOLNAME) >$@
 
 @BUILD_DARWIN_TRUE@$(OSX_DMG): $(OSX_APP_BUILT) $(OSX_PACKAGING) $(OSX_BACKGROUND_IMAGE)
-@BUILD_DARWIN_TRUE@	$(PYTHON) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) -add-qt-tr $(OSX_QT_TRANSLATIONS) -translations-dir=$(QT_TRANSLATION_DIR) -dmg -fancy $(OSX_FANCY_PLIST) -verbose 2 -add-resources contrib/macdeploy/libs/libboost_system-mt.dylib -volname $(OSX_VOLNAME)
+@BUILD_DARWIN_TRUE@	$(PYTHON) $(OSX_DEPLOY_SCRIPT) $(OSX_APP) -add-qt-tr $(OSX_QT_TRANSLATIONS) -translations-dir=$(QT_TRANSLATION_DIR) -dmg -fancy $(OSX_FANCY_PLIST) -verbose 2 -volname $(OSX_VOLNAME)
 
 @BUILD_DARWIN_TRUE@$(OSX_BACKGROUND_IMAGE).png: contrib/macdeploy/$(OSX_BACKGROUND_SVG)
 @BUILD_DARWIN_TRUE@	sed 's/PACKAGE_NAME/$(PACKAGE_NAME)/' < "$<" | $(RSVG_CONVERT) -f png -d 36 -p 36 -o $@

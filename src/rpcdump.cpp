@@ -79,6 +79,73 @@ std::string DecodeDumpString(const std::string& str)
     return ret.str();
 }
 
+UniValue importprivkey(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 3)
+        throw runtime_error(
+            "importprivkey \"nodebaseprivkey\" ( \"label\" rescan )\n"
+            "\nAdds a private key (as returned by dumpprivkey) to your wallet.\n"
+            "\nArguments:\n"
+            "1. \"nodebaseprivkey\"   (string, required) The private key (see dumpprivkey)\n"
+            "2. \"label\"            (string, optional, default=\"\") An optional label\n"
+            "3. rescan               (boolean, optional, default=true) Rescan the wallet for transactions\n"
+            "\nNote: This call can take minutes to complete if rescan is true.\n"
+            "\nExamples:\n"
+            "\nDump a private key\n" +
+            HelpExampleCli("dumpprivkey", "\"myaddress\"") +
+            "\nImport the private key with rescan\n" + HelpExampleCli("importprivkey", "\"mykey\"") +
+            "\nImport using a label and without rescan\n" + HelpExampleCli("importprivkey", "\"mykey\" \"testing\" false") +
+            "\nAs a JSON-RPC call\n" + HelpExampleRpc("importprivkey", "\"mykey\", \"testing\", false"));
+
+    LOCK2(cs_main, pwalletMain->cs_wallet);
+
+    EnsureWalletIsUnlocked();
+
+    string strSecret = params[0].get_str();
+    string strLabel = "";
+    if (params.size() > 1)
+        strLabel = params[1].get_str();
+
+    // Whether to perform rescan after import
+    bool fRescan = true;
+    if (params.size() > 2)
+        fRescan = params[2].get_bool();
+
+    CBitcoinSecret vchSecret;
+    bool fGood = vchSecret.SetString(strSecret);
+
+    if (!fGood) throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key encoding");
+
+    CKey key = vchSecret.GetKey();
+    if (!key.IsValid()) throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Private key outside allowed range");
+
+    CPubKey pubkey = key.GetPubKey();
+    assert(key.VerifyPubKey(pubkey));
+    CKeyID vchAddress = pubkey.GetID();
+    {
+        pwalletMain->MarkDirty();
+        pwalletMain->SetAddressBook(vchAddress, strLabel, "receive");
+
+        // Don't throw error in case a key is already there
+        if (pwalletMain->HaveKey(vchAddress))
+            return NullUniValue;
+
+        pwalletMain->mapKeyMetadata[vchAddress].nCreateTime = 1;
+
+        if (!pwalletMain->AddKeyPubKey(key, pubkey))
+            throw JSONRPCError(RPC_WALLET_ERROR, "Error adding key to wallet");
+
+        // whenever a key is imported, we need to scan the whole chain
+        pwalletMain->nTimeFirstKey = 1; // 0 would be considered 'no value'
+
+        if (fRescan) {
+            pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
+        }
+    }
+
+    return NullUniValue;
+}
+
 UniValue importaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
@@ -435,155 +502,4 @@ UniValue bip38decrypt(const UniValue& params, bool fHelp)
     }
 
     return result;
-}
-
-UniValue importprivkey(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() < 1 || params.size() > 3)
-        throw runtime_error(
-            "importprivkey \"nodebaseprivkey\" ( \"label\" rescan )\n"
-            "\nAdds a private key (as returned by dumpprivkey) to your wallet.\n"
-            "\nArguments:\n"
-            "1. \"nodebaseprivkey\"   (string, required) The private key (see dumpprivkey)\n"
-            "2. \"label\"            (string, optional, default=\"\") An optional label\n"
-            "3. rescan               (boolean, optional, default=true) Rescan the wallet for transactions\n"
-            "\nNote: This call can take minutes to complete if rescan is true.\n"
-            "\nExamples:\n"
-            "\nDump a private key\n" +
-            HelpExampleCli("dumpprivkey", "\"myaddress\"") +
-            "\nImport the private key with rescan\n" + HelpExampleCli("importprivkey", "\"mykey\"") +
-            "\nImport using a label and without rescan\n" + HelpExampleCli("importprivkey", "\"mykey\" \"testing\" false") +
-            "\nAs a JSON-RPC call\n" + HelpExampleRpc("importprivkey", "\"mykey\", \"testing\", false"));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    EnsureWalletIsUnlocked();
-
-    string strSecret = params[0].get_str();
-    string strLabel = "";
-    if (params.size() > 1)
-        strLabel = params[1].get_str();
-
-    // Whether to perform rescan after import
-    bool fRescan = true;
-    if (params.size() > 2)
-        fRescan = params[2].get_bool();
-
-    CBitcoinSecret vchSecret;
-    bool fGood = vchSecret.SetString(strSecret);
-
-    if (!fGood) throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key encoding");
-
-    CKey key = vchSecret.GetKey();
-    if (!key.IsValid()) throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Private key outside allowed range");
-
-    CPubKey pubkey = key.GetPubKey();
-    assert(key.VerifyPubKey(pubkey));
-    CKeyID vchAddress = pubkey.GetID();
-    {
-        pwalletMain->MarkDirty();
-        pwalletMain->SetAddressBook(vchAddress, strLabel, "receive");
-
-        // Don't throw error in case a key is already there
-        if (pwalletMain->HaveKey(vchAddress))
-            return NullUniValue;
-
-        pwalletMain->mapKeyMetadata[vchAddress].nCreateTime = 1;
-
-        if (!pwalletMain->AddKeyPubKey(key, pubkey))
-            throw JSONRPCError(RPC_WALLET_ERROR, "Error adding key to wallet");
-
-        // whenever a key is imported, we need to scan the whole chain
-        pwalletMain->nTimeFirstKey = 1; // 0 would be considered 'no value'
-
-        if (fRescan) {
-            pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
-        }
-    }
-
-    return NullUniValue;
-}
-
-void ImportAddress(const CTxDestination& dest, const string& strLabel);
-
-void ImportScript(const CScript& script, const string& strLabel, bool isRedeemScript)
- {
-     if (!isRedeemScript && ::IsMine(*pwalletMain, script) == ISMINE_SPENDABLE)
-         throw JSONRPCError(RPC_WALLET_ERROR, "The wallet already contains the private key for this address or script");
-
-     pwalletMain->MarkDirty();
-
-     if (!pwalletMain->HaveWatchOnly(script) && !pwalletMain->AddWatchOnly(script))
-         throw JSONRPCError(RPC_WALLET_ERROR, "Error adding address to wallet");
-
-     if (isRedeemScript) {
-         if (!pwalletMain->HaveCScript(script) && !pwalletMain->AddCScript(script))
-             throw JSONRPCError(RPC_WALLET_ERROR, "Error adding p2sh redeemScript to wallet");
-         CTxDestination destination = CScriptID(script);
-         ImportAddress(destination, strLabel);
-     } else {
-         CTxDestination destination;
-         if (ExtractDestination(script, destination)) {
-             pwalletMain->SetAddressBook(destination, strLabel, "receive");
-         }
-     }
- }
-
- void ImportAddress(const CTxDestination& dest, const string& strLabel)
- {
-     CScript script = GetScriptForDestination(dest);
-     ImportScript(script, strLabel, false);
-     // add to address book or update label
-     pwalletMain->SetAddressBook(dest, strLabel, "receive");
- }
-
-UniValue importpubkey(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() < 1 || params.size() > 4)
-        throw runtime_error(
-            "importpubkey \"pubkey\" ( \"label\" rescan )\n"
-            "\nAdds a public key (in hex) that can be watched as if it were in your wallet but cannot be used to spend.\n"
-            "\nArguments:\n"
-            "1. \"pubkey\"           (string, required) The hex-encoded public key\n"
-            "2. \"label\"            (string, optional, default=\"\") An optional label\n"
-            "3. rescan               (boolean, optional, default=true) Rescan the wallet for transactions\n"
-            "\nNote: This call can take minutes to complete if rescan is true.\n"
-            "\nExamples:\n"
-            "\nImport a public key with rescan\n"
-            + HelpExampleCli("importpubkey", "\"mypubkey\"") +
-            "\nImport using a label without rescan\n"
-            + HelpExampleCli("importpubkey", "\"mypubkey\" \"testing\" false") +
-            "\nAs a JSON-RPC call\n"
-            + HelpExampleRpc("importpubkey", "\"mypubkey\", \"testing\", false")
-        );
-
-
-    string strLabel = "";
-    if (params.size() > 1)
-        strLabel = params[1].get_str();
-
-    // Whether to perform rescan after import
-    bool fRescan = true;
-    if (params.size() > 2)
-        fRescan = params[2].get_bool();
-
-    if (!IsHex(params[0].get_str()))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Pubkey must be a hex string");
-    std::vector<unsigned char> data(ParseHex(params[0].get_str()));
-    CPubKey pubKey(data.begin(), data.end());
-    if (!pubKey.IsFullyValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Pubkey is not a valid public key");
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    ImportAddress(CTxDestination(pubKey.GetID()), strLabel);
-    ImportScript(GetScriptForRawPubKey(pubKey), strLabel, false);
-
-    if (fRescan)
-    {
-        pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
-        pwalletMain->ReacceptWalletTransactions();
-    }
-
-    return NullUniValue;
 }

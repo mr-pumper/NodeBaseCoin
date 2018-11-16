@@ -327,8 +327,6 @@ extern UniValue verifymessage(const UniValue& params, bool fHelp);
 extern UniValue setmocktime(const UniValue& params, bool fHelp);
 extern UniValue getstakingstatus(const UniValue& params, bool fHelp);
 
-extern UniValue importpubkey(const UniValue& params, bool fHelp);
-
 bool StartRPC();
 void InterruptRPC();
 void StopRPC();
