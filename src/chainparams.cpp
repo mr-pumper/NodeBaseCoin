@@ -255,10 +255,10 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 60 * 60; // Nodebase: 1 hr
-        nTargetSpacing = 120;  // Nodebase: 2 min
-        nLastPOWBlock = 500;
-        nMaturity = 30;
+        nTargetTimespan = 1 * 60; // Nodebase: 1 hr
+        nTargetSpacing = 1 * 60;  // Nodebase: 2 min
+        nLastPOWBlock = 30;
+        nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 600000000LL * COIN;
